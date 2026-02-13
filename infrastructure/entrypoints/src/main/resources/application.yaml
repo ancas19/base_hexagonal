@@ -31,18 +31,18 @@ database:
           proc:
             param_null_passing: false
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/your_db
-    user: your_user
-    pass: your_password
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABSE}
+    user: ${POSTGRES_USER}
+    pass: ${POSTGRES_PASSWORD}
     hikari:
-      maximum-pool-size: 10
-      minimum-idle: 2
-      idle-timeout: 600000        # milliseconds
-      max-lifetime: 1800000       # milliseconds
-      connection-timeout: 30000   # milliseconds
-      keepaliveTime: 0            # milliseconds
-      validationTimeout: 5000     # milliseconds
-      leakDetectionThreshold: 0   # milliseconds
+      maximum-pool-size: ${DATABASE_MAXIMUM_POOL_SIZE}
+      minimum-idle: ${DATABASE_MANIMUM_POOL_SIZE}
+      idle-timeout: ${DATABASE_IDLE_TIMEOUT}
+      max-lifetime: ${DATABASE_MAX_LIFE_TIMEOUT}
+      connection-timeout: ${DATABASE_CONNECTION_TIMEOUT}
+      keepaliveTime: ${DATABASE_KEEP_ALIVE_TIME}
+      validationTimeout: ${DATABASE_VALIDATION_TIMEOUT}
+      leakDetectionThreshold: ${DATABASE_LEAKDETECTIONTHRESHOLD}
 
 
 management:
