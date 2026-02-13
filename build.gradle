@@ -67,8 +67,8 @@ subprojects {
 
 
 	dependencies {
-		implementation "org.springframework.boot:spring-boot-starter-webflux:${SPRING_VERSION}"
-		testImplementation "org.springframework.boot:spring-boot-starter-webflux-test:${SPRING_VERSION}"
+		implementation "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
+		testImplementation "org.springframework.boot:spring-boot-starter-test:${SPRING_VERSION}"
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	}
 }

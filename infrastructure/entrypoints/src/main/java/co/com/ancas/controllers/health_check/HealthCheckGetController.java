@@ -8,11 +8,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
-
 @RestController
 @RequestMapping("/health-check")
 @Tag(name = "Health Check", description = "Endpoints for application health monitoring")
@@ -33,8 +32,8 @@ public class HealthCheckGetController {
             )
     })
     @GetMapping
-    public Mono<HealthStatusResponse> getStatus() {
-        return Mono.just(
+    public ResponseEntity<HealthStatusResponse> getStatus() {
+        return ResponseEntity.ok(
                 new HealthStatusResponse("OK", "1.0.0")
         );
     }

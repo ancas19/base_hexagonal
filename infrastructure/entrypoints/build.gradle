@@ -21,13 +21,16 @@ dependencies {
     implementation project(":models")
     implementation project(":use_cases")
     implementation project(":postgres_driven")
-    implementation "org.springframework.boot:spring-boot-starter-webflux:${SPRING_VERSION}"
-    testImplementation "org.springframework.boot:spring-boot-starter-webflux-test:${SPRING_VERSION}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${SPRING_VERSION}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation "org.springframework.boot:spring-boot-starter-actuator:${SPRING_VERSION}"
     testImplementation "org.springframework.boot:spring-boot-starter-actuator-test:${SPRING_VERSION}"
     // SpringDoc OpenAPI (Swagger UI)
-    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:3.0.1'
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.1")
+    implementation("org.springframework.boot:spring-boot-starter-actuator:${SPRING_VERSION}")
+    implementation("io.micrometer:micrometer-core:1.17.0-M1")
+    implementation("io.micrometer:micrometer-registry-prometheus:1.17.0-M2")
 }
 
 test {
