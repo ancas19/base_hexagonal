@@ -1,5 +1,5 @@
 dependencies{
-    implementation project(":models")
+    implementation project(":domains")
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:${SPRING_VERSION}"
     implementation("org.postgresql:postgresql:42.7.10")
     testImplementation "org.springframework.boot:spring-boot-starter-data-jpa-test:${SPRING_VERSION}"

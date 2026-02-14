@@ -18,7 +18,7 @@ bootRun {
 }
 
 dependencies {
-    implementation project(":models")
+    implementation project(":domains")
     implementation project(":use_cases")
     implementation project(":postgres_driven")
     implementation "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
@@ -31,6 +31,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator:${SPRING_VERSION}")
     implementation("io.micrometer:micrometer-core:1.17.0-M1")
     implementation("io.micrometer:micrometer-registry-prometheus:1.17.0-M2")
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.4.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+
 }
 
 test {

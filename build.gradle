@@ -70,6 +70,7 @@ subprojects {
 		implementation "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
 		testImplementation "org.springframework.boot:spring-boot-starter-test:${SPRING_VERSION}"
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+		testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.0-M1")
 	}
 }
 
