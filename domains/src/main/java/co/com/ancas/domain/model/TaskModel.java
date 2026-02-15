@@ -61,6 +61,11 @@ public class TaskModel {
         this.createdAt = createdAt;
     }
 
+    // Add builder factory so callers can use TaskModel.builder()
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public static final class Builder {
         private UUID id;
         private String name;
