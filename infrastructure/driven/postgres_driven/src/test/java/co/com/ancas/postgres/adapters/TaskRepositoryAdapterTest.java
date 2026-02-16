@@ -12,6 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -28,6 +31,8 @@ class TaskRepositoryAdapterTest {
 
     private TaskModel taskModel;
     private TaskEntity taskEntity;
+    private List<TaskModel> taskModelList;
+    private List<TaskEntity> taskEntityList;
 
     @BeforeEach
     void setUp() {
@@ -39,6 +44,24 @@ class TaskRepositoryAdapterTest {
                 .status(taskModel.getStatus())
                 .createdAt(taskModel.getCreatedAt())
                 .build();
+
+        taskModelList = DataMocks.taskModelList();
+        taskEntityList = Arrays.asList(
+                TaskEntity.builder()
+                        .id(taskModelList.get(0).getId())
+                        .name(taskModelList.get(0).getName())
+                        .description(taskModelList.get(0).getDescription())
+                        .status(taskModelList.get(0).getStatus())
+                        .createdAt(taskModelList.get(0).getCreatedAt())
+                        .build(),
+                TaskEntity.builder()
+                        .id(taskModelList.get(1).getId())
+                        .name(taskModelList.get(1).getName())
+                        .description(taskModelList.get(1).getDescription())
+                        .status(taskModelList.get(1).getStatus())
+                        .createdAt(taskModelList.get(1).getCreatedAt())
+                        .build()
+        );
     }
 
     @Test
@@ -59,6 +82,26 @@ class TaskRepositoryAdapterTest {
         assertNotNull(result.getCreatedAt());
 
         verify(taskRepository, times(1)).save(any(TaskEntity.class));
+    }
+
+    @Test
+    @DisplayName("Should find all tasks from database")
+    void shouldFindAllTasksSuccessfully() {
+        // Arrange
+        when(taskRepository.findAll()).thenReturn(taskEntityList);
+
+        // Act
+        List<TaskModel> result = taskRepositoryAdapter.findAll();
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals("Task 1", result.get(0).getName());
+        assertEquals("Task 2", result.get(1).getName());
+        assertEquals("PENDING", result.get(0).getStatus());
+        assertEquals("IN_PROGRESS", result.get(1).getStatus());
+
+        verify(taskRepository, times(1)).findAll();
     }
 }
 

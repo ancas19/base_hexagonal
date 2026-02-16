@@ -1,5 +1,6 @@
 package co.com.ancas.use_cases.adapters;
 
+import co.com.ancas.domain.exceptions.NotFoundException;
 import co.com.ancas.domain.models.TaskModel;
 import co.com.ancas.domain.ports.TaskRepositoryPort;
 import co.com.ancas.domain.utils.mocks.DataMocks;
@@ -11,6 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -25,10 +28,12 @@ class TaskPortAdapterTest {
     @InjectMocks
     private TaskPortAdapter taskPortAdapter;
     private TaskModel taskModel;
+    private List<TaskModel> taskModelList;
 
     @BeforeEach
     void setUp() {
         taskModel = DataMocks.taskModelInformation();
+        taskModelList = DataMocks.taskModelList();
     }
 
     @Test
@@ -50,6 +55,37 @@ class TaskPortAdapterTest {
         verify(taskRepositoryPort, times(1)).create(taskModel);
     }
 
+    @Test
+    @DisplayName("Should find all tasks successfully")
+    void shouldFindAllTasksSuccessfully() {
+        // Arrange
+        when(taskRepositoryPort.findAll()).thenReturn(taskModelList);
 
+        // Act
+        List<TaskModel> result = taskPortAdapter.findAll();
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals("Task 1", result.get(0).getName());
+        assertEquals("Task 2", result.get(1).getName());
+
+        verify(taskRepositoryPort, times(1)).findAll();
+    }
+
+    @Test
+    @DisplayName("Should throw NotFoundException when no tasks found")
+    void shouldThrowNotFoundExceptionWhenNoTasksFound() {
+        // Arrange
+        when(taskRepositoryPort.findAll()).thenReturn(Collections.emptyList());
+
+        // Act & Assert
+        NotFoundException exception = assertThrows(NotFoundException.class, () -> {
+            taskPortAdapter.findAll();
+        });
+
+        assertEquals("No tasks found", exception.getMessage());
+        verify(taskRepositoryPort, times(1)).findAll();
+    }
 }
 

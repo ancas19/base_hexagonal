@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("tasks")
-@Tag(name="Controller for tasks", description="Controller for tasks")
+@Tag(name="Controller Post task", description="Controller for post operations of tasks")
 public class TaskPostController {
 
     private final TaskService taskService;
