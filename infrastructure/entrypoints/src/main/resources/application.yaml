@@ -23,7 +23,7 @@ database:
     hibernate:
       show_sql: false
       hbm2ddl:
-        auto: update
+        auto: none
       dialect: org.hibernate.dialect.PostgreSQLDialect
     jpa:
       properties:

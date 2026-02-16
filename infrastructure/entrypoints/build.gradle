@@ -22,7 +22,6 @@ dependencies {
     implementation project(":use_cases")
     implementation project(":postgres_driven")
     implementation "org.springframework.boot:spring-boot-starter-web:${SPRING_VERSION}"
-    testImplementation "org.springframework.boot:spring-boot-starter-test:${SPRING_VERSION}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation "org.springframework.boot:spring-boot-starter-actuator:${SPRING_VERSION}"
     testImplementation "org.springframework.boot:spring-boot-starter-actuator-test:${SPRING_VERSION}"
@@ -32,9 +31,14 @@ dependencies {
     implementation("io.micrometer:micrometer-core:1.17.0-M1")
     implementation("io.micrometer:micrometer-registry-prometheus:1.17.0-M2")
     testImplementation("com.tngtech.archunit:archunit-junit5:1.4.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.14.2")
+    testImplementation 'org.mockito:mockito-core:5.21.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.21.0'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    implementation("org.springframework:spring-tx:7.0.4")
 
 }
 
