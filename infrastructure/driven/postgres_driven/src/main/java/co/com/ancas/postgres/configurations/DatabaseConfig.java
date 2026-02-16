@@ -1,4 +1,4 @@
-package co.com.ancas.postgres.configuration;
+package co.com.ancas.postgres.configurations;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

@@ -1,7 +1,7 @@
 package co.com.ancas.use_cases.ports;
 
-import co.com.ancas.domain.model.TaskModel;
+import co.com.ancas.domain.models.TaskModel;
 
-public interface CreateTask {
+public interface CreateTaskPort {
     TaskModel create(TaskModel taskModel);
 }

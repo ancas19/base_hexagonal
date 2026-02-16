@@ -1,4 +1,4 @@
-package co.com.ancas.config;
+package co.com.ancas.configurations;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

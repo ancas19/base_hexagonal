@@ -1,12 +1,9 @@
 package co.com.ancas.mapper;
 
 
-import co.com.ancas.domain.model.TaskModel;
+import co.com.ancas.domain.models.TaskModel;
 import co.com.ancas.requests.TaskRequest;
 import co.com.ancas.responses.TaskResponse;
-
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class TaskMapper {
     private TaskMapper(){

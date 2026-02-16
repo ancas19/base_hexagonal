@@ -1,4 +1,4 @@
-package co.com.ancas.domain.model;
+package co.com.ancas.domain.models;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

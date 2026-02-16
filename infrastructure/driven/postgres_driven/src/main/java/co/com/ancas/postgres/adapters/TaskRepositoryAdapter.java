@@ -1,6 +1,6 @@
-package co.com.ancas.postgres.adapter;
+package co.com.ancas.postgres.adapters;
 
-import co.com.ancas.domain.model.TaskModel;
+import co.com.ancas.domain.models.TaskModel;
 import co.com.ancas.domain.ports.TaskRepositoryPort;
 import co.com.ancas.postgres.mappers.TaskMapper;
 import co.com.ancas.postgres.repositories.TaskRepository;

@@ -1,6 +1,6 @@
 package co.com.ancas.postgres.mappers;
 
-import co.com.ancas.domain.model.TaskModel;
+import co.com.ancas.domain.models.TaskModel;
 import co.com.ancas.postgres.entities.TaskEntity;
 
 import java.time.LocalDateTime;

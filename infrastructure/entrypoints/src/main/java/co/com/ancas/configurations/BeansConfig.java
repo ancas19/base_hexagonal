@@ -1,7 +1,7 @@
-package co.com.ancas.config;
+package co.com.ancas.configurations;
 
 import co.com.ancas.domain.ports.TaskRepositoryPort;
-import co.com.ancas.use_cases.adapters.TaskAdapter;
+import co.com.ancas.use_cases.adapters.TaskPortAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeansConfig {
 
     @Bean
-    public TaskAdapter taskAdapter(TaskRepositoryPort taskRepositoryPort) {
-        return new TaskAdapter(taskRepositoryPort);
+    public TaskPortAdapter taskAdapter(TaskRepositoryPort taskRepositoryPort) {
+        return new TaskPortAdapter(taskRepositoryPort);
     }
 }

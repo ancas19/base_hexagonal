@@ -190,7 +190,7 @@ public class ArchitectureTest {
 
 
     @ArchTest
-    public static final ArchRule SERVICES_ONLY_ACCESSED_BY_CONTROLLERS = ArchRuleDefinition.noClasses().that()
+    public static final ArchRule SERVICES_ONLY_ACCESSED_BY_CONTROLLERS = classes().that()
             .resideInAPackage("..services..")
             .should().onlyBeAccessed().byAnyPackage("..controllers..", "..services..")
             .allowEmptyShould(true);
