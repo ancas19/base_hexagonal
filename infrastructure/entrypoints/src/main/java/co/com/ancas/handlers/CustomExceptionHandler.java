@@ -1,4 +1,4 @@
-package co.com.ancas.handler;
+package co.com.ancas.handlers;
 
 import co.com.ancas.domain.exceptions.BadRequestException;
 import co.com.ancas.domain.exceptions.NotFoundException;

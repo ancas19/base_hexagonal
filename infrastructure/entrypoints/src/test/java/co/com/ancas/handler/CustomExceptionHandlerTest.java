@@ -2,6 +2,7 @@ package co.com.ancas.handler;
 
 import co.com.ancas.domain.exceptions.BadRequestException;
 import co.com.ancas.domain.exceptions.NotFoundException;
+import co.com.ancas.handlers.CustomExceptionHandler;
 import co.com.ancas.responses.ErrorResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
