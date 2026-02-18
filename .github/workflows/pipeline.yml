@@ -8,9 +8,25 @@ on:
       - master
 
 jobs:
-  hello:
+  build:
       runs-on: ubuntu-latest
-
       steps:
-        - name: Say Hello
-          run: echo "Hello, this is my first Github action workflow"
+        - name: Download the code
+          uses: actions/checkout@v5.0.1
+        - name: Set up java 25
+          uses: actions/setup-java@v5.0.0
+          with:
+            distribution: 'corretto'
+            java-version: '25'
+        - name: Cache gradle dependencies
+          uses: actions/cache@v4
+          with:
+            path: |
+              ~/.gradle/caches
+              ~/.gradle/wrapper
+            key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle-wrapper.properties') }}
+            restore-keys: |
+              ${{ runner.os }}-gradle-
+        - name: Build with Gradle
+          run: /.gradlew build
+            
