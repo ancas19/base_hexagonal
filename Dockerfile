@@ -1,5 +1,5 @@
 # Runtime stage for Spring Boot application
-FROM doker.io/eclipse-temurin:25-jre-alpine
+FROM eclipse-temurin:25-jre-alpine
 # Set working directory
 WORKDIR /app
 # Create a non-root user for security
