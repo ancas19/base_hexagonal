@@ -5,7 +5,7 @@ WORKDIR /app
 # Create a non-root user for security
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 # Copy the pre-built JAR file
-COPY infrastructure/entrypoints/build/libs/entrypoints-1.0.0.jar app.jar
+COPY *.jar app.jar
 # Change ownership to non-root user
 RUN chown -R appuser:appgroup /app
 # Switch to non-root user
